@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5eb64f5870d40e448904e52d56a937cd
+  - enabled: 1
+    path: Assets/Scenes/Fisika.unity
+    guid: 62b6f430b206585418138d0e440b57fd
+  - enabled: 1
+    path: Assets/Scenes/Fisika/Hooke.unity
+    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
+  - enabled: 1
+    path: Assets/Scenes/Fisika/Hooke Ver2.unity
+    guid: a0695973f25823c40b22a94914d6f825
+  - enabled: 1
+    path: Assets/Scenes/Fisika/Hooke Paralel.unity
+    guid: 9c137bffcb952bb49924d97c088fdeb3
+  - enabled: 1
+    path: Assets/Scenes/Fisika/Hooke Series.unity
+    guid: 24dc5a985b0427f4f8608aeda1f2e752
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 548128c73d914b9489a15ef58894c2e3, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 934ff526ef58bb640b3475c0f8dbbe34, type: 2}

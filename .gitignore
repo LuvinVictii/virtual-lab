@@ -1,0 +1,19 @@
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+obj/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
