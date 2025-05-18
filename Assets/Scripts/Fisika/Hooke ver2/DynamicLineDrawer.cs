@@ -39,6 +39,7 @@ public class DynamicLineDrawer : MonoBehaviour
     void Start()
     {
         isNilai = GameObject.Find("ToggleNilai").GetComponent<Toggle>();
+        gameObject.SetActive(false);
     }
 
     void Update()
@@ -142,11 +143,16 @@ public class DynamicLineDrawer : MonoBehaviour
             }
             else
             {    
-                xText.transform.position = (endPos - anchorWorldPos)/2 + new Vector3(0f, -0.5f, 0f); // Offset sedikit ke atas
                 if(springSource.GetComponent<Spring>() != null)
+                {
+                    xText.transform.position = (endPos - anchorWorldPos) + new Vector3(((endPos.x > anchorWorldPos.x) ? 1f : -1.1f), 0f, 0f); // Offset sedikit ke atas
                     xText.text = $"{springSource.GetComponent<Spring>().GetX():0.000} m"; // Update text dengan nilai x
+                }
                 else if (springSource.GetComponent<ParallelSpring>() != null)
+                {
+                    xText.transform.position = endPos + new Vector3(((endPos.x > anchorWorldPos.x) ? 1f : -1f), 0f, 0f);
                     xText.text = $"{springSource.GetComponent<ParallelSpring>().GetX(springIdx):0.000} m"; // Update text dengan nilai x
+                }
                 else
                 {
                     xText.transform.position = endPos + new Vector3(((endPos.x > anchorWorldPos.x) ? 1f : -1f), 0f, 0f);
@@ -159,14 +165,15 @@ public class DynamicLineDrawer : MonoBehaviour
     public void SetVisible()
     {
         isEnabled = !isEnabled;
+        gameObject.SetActive(isEnabled);
         lr.enabled = isEnabled;
-        if (xText != null && isNilai != null)
-        {
-            xText.gameObject.SetActive(isEnabled && isNilai.isOn);
-        }
-        else if (xText != null)
-        {
-            xText.gameObject.SetActive(isEnabled);
-        }
+        // if (xText != null && isNilai != null)
+        // {
+        //     xText.gameObject.SetActive(isEnabled && isNilai.isOn);
+        // }
+        // else if (xText != null)
+        // {
+        //     xText.gameObject.SetActive(isEnabled);
+        // }
     }
 }
