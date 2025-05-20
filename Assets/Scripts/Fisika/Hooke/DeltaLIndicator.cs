@@ -21,7 +21,7 @@ public class DeltaLIndicator : MonoBehaviour
     void Update()
     {
         float dist = Vector2.Distance(anchor.transform.position, beban.transform.position);
-        deltaLText.text = (dist*20).ToString("F2") + " cm"; // Update deltaL text
+        deltaLText.text = (dist*2).ToString("F2") + " m"; // Update deltaL text
         if (dist < 0.01f){
             lr.enabled = false; // Disable line renderer if the distance is too small
             anchor.SetActive(false);

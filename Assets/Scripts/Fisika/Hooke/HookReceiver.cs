@@ -12,7 +12,7 @@ public class HookReceiver : MonoBehaviour, IDropHandler
     public float bounceDuration = 10f; // Lama total bouncing
     public GameObject jawabanText;
     [SerializeField] private float randBot = 1f;
-    [SerializeField] private float randTop = 2.5f;
+    [SerializeField] private float randTop = 3f;
     public float deltaL { get; private set; } // Perpanjangan pegas
 
     private Vector3 initialHookPosition;
@@ -52,7 +52,7 @@ public class HookReceiver : MonoBehaviour, IDropHandler
                 Debug.Log("F: " + F + " deltaL: " + deltaL);
                 deltaL *= 0.5f;
 
-                float targetLength = baseLength + deltaL + Random.Range(-0.005f, 0.005f);
+                float targetLength = baseLength + deltaL;
                 Vector3 targetPosition = anchor.position - new Vector3(0, targetLength, 0);
 
                 if (bounceRoutine != null)
@@ -67,7 +67,7 @@ public class HookReceiver : MonoBehaviour, IDropHandler
     {
         float elapsed = 0f;
         Vector3 startPos = transform.position;
-        float amplitude = (targetPos - startPos).magnitude;
+        float amplitude = (targetPos - startPos).magnitude * 0.5f;
         float frequency = 20f; // bisa disesuaikan
 
         while (true)
@@ -79,7 +79,7 @@ public class HookReceiver : MonoBehaviour, IDropHandler
             float offset = amplitude * Mathf.Exp(-damping * t * frequency) * Mathf.Cos(frequency * t * Mathf.PI * 2);
             transform.position = targetPos + new Vector3(0, offset, 0);
 
-            if (offset < 0.001f && offset > -0.001f)
+            if (offset < 0.0003f && offset > -0.0003f)
             {
                 break; // Berhenti jika sudah cukup dekat
             }
@@ -110,6 +110,6 @@ public class HookReceiver : MonoBehaviour, IDropHandler
     {
         k = Random.Range(randBot, randTop);
         Debug.Log("K: " + k);
-        jawabanText.GetComponent<TMPro.TextMeshProUGUI>().text = (k*10).ToString("F2");
+        jawabanText.GetComponent<TMPro.TextMeshProUGUI>().text = (k*100).ToString("F2");
     }
 }

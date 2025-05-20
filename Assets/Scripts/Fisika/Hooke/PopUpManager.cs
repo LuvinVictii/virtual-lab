@@ -138,15 +138,15 @@ public class PopUpManager : MonoBehaviour
             return;
         }
 
-        if(parsedValue < 10f || parsedValue > 300f)
+        if(parsedValue < 5f || parsedValue > 20f)
         {
             CustomMassInputField.text = string.Empty; // Kosongkan input field
             Debug.Log("Input tidak valid!");
             return;
         }
 
-        CustomMass.GetComponent<MassInfo>().SetVariable(parsedValue / 1000f);
-        CustomMassText.GetComponent<TMPro.TextMeshProUGUI>().text = parsedValue.ToString() + "g";
+        CustomMass.GetComponent<MassInfo>().SetVariable(parsedValue / 100f);
+        CustomMassText.GetComponent<TMPro.TextMeshProUGUI>().text = parsedValue.ToString() + " kg";
         PopUpCustomMassDisable();
     }
 
@@ -184,7 +184,7 @@ public class PopUpManager : MonoBehaviour
 
     public void SceneExit()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Fisika");
         Debug.Log("Keluar dari aplikasi");
     }    
 }
